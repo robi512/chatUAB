@@ -1,0 +1,57 @@
+/* ChatUAB stable experience — final scoped overrides, avoid competing legacy gradients. */
+/* Map mechanics: do not let animated SVG layers expand outside their viewport. */
+.uc-scene .uc-plan{overflow:hidden!important;touch-action:none;}
+.uc-scene .uc-camera{transition:transform 440ms cubic-bezier(.24,.74,.29,1)!important;will-change:transform;}
+.uc-scene.uc-dragging .uc-camera{transition:none!important;}
+.uc-scene .uc-architecture{animation:none!important;}
+.uc-floor-outgoing{pointer-events:none;animation:uc-layer-exit 440ms ease-in-out both;transform-origin:350px 350px;}
+.uc-floor-incoming{animation:uc-layer-enter 440ms cubic-bezier(.2,.76,.25,1) both;transform-origin:350px 350px;}
+.uc-floor-steady{opacity:1;}
+@keyframes uc-layer-exit{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(10px) scale(.985)}}
+@keyframes uc-layer-enter{0%{opacity:.08;transform:translateY(-11px) scale(1.012)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.uc-floor-transition-badge{position:absolute;z-index:5;left:50%;top:38px;display:flex;align-items:center;gap:5px;transform:translateX(-50%);padding:7px 11px;border:1px solid #e4ece5;background:#ffffffd9;border-radius:99px;font-size:10px;color:#376149;font-weight:800;letter-spacing:.05em;box-shadow:0 4px 15px #21432e18;pointer-events:none;}
+.uc-floor-transition-badge.uc-floor-changing{animation:uc-level-pulse 440ms ease-out;}
+@keyframes uc-level-pulse{50%{background:#e2efe6;transform:translateX(-50%) translateY(-2px)}}
+/* Calm navigation surface. No bright animated floor-scale or surprise zoom. */
+.uc-scene{background:#f0f3ee!important;}
+.uc-scene .uc-scene-lab{color:#5a7964;}
+.uc-scene .uc-floor-rail{box-shadow:0 6px 24px #1b3d2c15!important;border:1px solid #e7eee8!important;}
+.uc-scene .uc-scene-tools button{box-shadow:0 4px 14px #21422c16!important;}
+/* Official mark supplied by the user, on its own clean surface. No blending with the hero gradient. */
+.delight-hero-top{align-items:center;gap:8px;}
+.delight-university-mark{width:147px!important;height:39px!important;min-width:125px;overflow:visible!important;opacity:1!important;display:flex;align-items:center;justify-content:center;padding:7px 9px;background:#fff!important;border:1px solid #e5ece3;border-radius:10px;box-shadow:0 3px 10px #1b392516;}
+.delight-university-mark img{display:block;width:100%!important;height:100%!important;max-width:127px;max-height:29px;object-fit:contain;mix-blend-mode:normal!important;image-rendering:auto;}
+/* Brand should read as two separate things: our app + the campus it serves. */
+.home-brand-mark{background:#fff!important;border:1px solid #e8ece7!important;box-shadow:0 2px 7px #133c2510!important;}
+.home-brand small{font-weight:600!important;letter-spacing:0!important;color:#64786b!important;}
+/* Onboarding: quiet ivory, one restrained accent, premium typography, useful mascot motion. */
+.onboard-overlay{background:#f4f5f1!important;padding:calc(12px + env(safe-area-inset-top)) 14px calc(10px + env(safe-area-inset-bottom))!important;}
+.onboard-card{max-width:448px!important;min-height:min(690px,92dvh)!important;background:#fff!important;border:1px solid #e7eae3!important;border-radius:27px!important;box-shadow:0 20px 52px #182c1b13!important;padding:23px 23px 18px!important;}
+.onboard-top{color:#65766c!important;font-family:'DM Sans',system-ui,sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:.035em!important;}
+.onboard-top-dot{width:5px!important;height:5px!important;background:#d1ac57!important;}
+.onboard-art{margin:15px 0 20px!important;max-height:290px!important;min-height:205px!important;}
+.onboard-art-intro{background:linear-gradient(150deg,#f4f6f2,#eef1eb)!important;border-radius:23px!important;}
+.onboard-bear{width:150px!important;height:150px!important;border:none!important;background:none!important;box-shadow:none!important;transform:none!important;}
+.onboard-bear .bear-assistant-mascot{animation-duration:4s!important;}
+.onboard-orbit{background:#fff!important;color:#20553d!important;width:43px!important;height:43px!important;border-radius:14px!important;border:1px solid #e5ebe3!important;box-shadow:0 5px 16px #1e422317!important;}
+.onboard-orbit svg{width:19px;height:19px;}
+.onboard-orbit-a{left:11%;top:20%;transform:rotate(-5deg)!important;}
+.onboard-orbit-b{right:11%;top:23%;transform:rotate(6deg)!important;}
+.onboard-orbit-c{right:20%;bottom:14%;transform:rotate(-3deg)!important;}
+.onboard-copy{padding:0 2px!important;}
+.onboard-copy .premium-section-eyebrow{font-size:10px!important;color:#64816d!important;letter-spacing:.1em!important;font-weight:750!important;}
+.onboard-copy h1{font-family:'DM Sans',system-ui,sans-serif!important;color:#172f24!important;font-size:clamp(34px,9vw,46px)!important;font-weight:800!important;letter-spacing:-.055em!important;line-height:1.07!important;margin:10px 0 13px!important;}
+.onboard-copy>p{font-family:'DM Sans',system-ui,sans-serif!important;font-size:14px!important;font-weight:450!important;line-height:1.55!important;color:#5f7166!important;}
+.onboard-primary{height:54px!important;background:#105237!important;border-radius:16px!important;border:1px solid #0d4a31!important;box-shadow:0 8px 20px #0a513020!important;font-family:'DM Sans',system-ui,sans-serif!important;font-size:15px!important;font-weight:750!important;color:#fff!important;transition:transform .18s,background .18s!important;}
+.onboard-primary:active{transform:scale(.985)!important;box-shadow:0 3px 10px #0a513018!important;}
+.onboard-progress span.active{background:#145b3e!important;}
+.onboard-progress span{background:#e3e8e1!important;}
+.onboard-art-location{background:#ebf0e8!important;}
+.onboard-select-label{color:#234835!important;font-family:'DM Sans',system-ui,sans-serif!important;}
+.onboard-location-pin{background:white!important;color:#164b34!important;box-shadow:0 10px 25px #0d392626!important;}
+.app-shell[data-theme=dark] .onboard-overlay{background:#161e19!important;}
+.app-shell[data-theme=dark] .onboard-card{background:#24332a!important;border-color:#35453a!important;}
+.app-shell[data-theme=dark] .onboard-copy h1{color:#fafcf8!important;}
+.app-shell[data-theme=dark] .onboard-copy>p{color:#c4d2c8!important;}
+@media(max-width:420px){.delight-university-mark{width:128px!important;min-width:111px;height:35px!important;padding:6px 7px;}.delight-eyebrow{font-size:9px!important;letter-spacing:.06em!important}.onboard-card{padding:20px 19px 16px!important}.onboard-art{max-height:270px!important;}}
+@media(prefers-reduced-motion:reduce){.uc-floor-outgoing,.uc-floor-incoming,.uc-floor-transition-badge{animation:none!important}.uc-scene .uc-camera{transition:none!important}.onboard-bear .bear-assistant-mascot{animation:none!important}}
